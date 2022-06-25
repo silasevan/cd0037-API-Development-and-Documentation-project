@@ -8,7 +8,7 @@ from models import setup_db, Question, Category
 
 QUESTIONS_PER_PAGE = 10
 
-
+# from Udacity classroom
 def paginate_questions(request, selection):
     page = request.args.get("page", 1, type=int)
     start = (page - 1) * QUESTIONS_PER_PAGE
@@ -39,7 +39,7 @@ def create_app(test_config=None):
 
     @app.route('/categories')
     def all_categories():
-        categories = Category.query.order_by(Category.type).all()
+        categories = Category.query.order_by(Category.type).all() # from stack overflow
 
         if len(categories) == 0:
             abort(404)
@@ -150,7 +150,7 @@ def create_app(test_config=None):
     the form will clear and the question will appear at the end of the last page
     of the questions list in the "List" tab.
     """
-    
+    #code from udacity class room
     @app.route("/questions", methods=["POST"])
     def add_question():
         body = request.get_json()
@@ -246,7 +246,7 @@ def create_app(test_config=None):
     one question at a time is displayed, the user is allowed to answer
     and shown whether they were correct or not.
     """
-    #code from github.com
+    #code from github.com/saelsa
     @app.route('/quizzes', methods=['POST'])
     def play_quiz():
 
